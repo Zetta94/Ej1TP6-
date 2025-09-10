@@ -19,6 +19,7 @@ public class Rubro {
         rubros.add("PERFUMERIA");
         rubros.add("FARMACIA");
         rubros.add("ROPA");
+        
     }
 
     public static ArrayList<String> getRubros() {

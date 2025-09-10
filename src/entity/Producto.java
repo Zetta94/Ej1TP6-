@@ -69,4 +69,6 @@ public class Producto {
                 + ", rubro='" + rubro + '\''
                 + '}';
     }
+    
+    
 }
