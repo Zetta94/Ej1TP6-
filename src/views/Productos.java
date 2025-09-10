@@ -4,7 +4,11 @@
  */
 package views;
 
+import entity.Producto;
 import entity.Rubro;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,12 +21,19 @@ public class Productos extends javax.swing.JFrame {
     /**
      * Creates new form Productos
      */
+
+ArrayList <Producto> listaProductos=new ArrayList<>();
+    private DefaultTableModel modeloTabla;
     public Productos() {
         initComponents();
          CboxRubros.removeAllItems();
     for (String r : Rubro.getRubros()) {
-        CboxRubros.addItem(r);
+        CboxRubros.addItem(r);   
     }
+    modeloTabla = new DefaultTableModel(new Object[]{"Nombre", "Categoria", "Precio"}, 0);
+        jTable1.setModel(modeloTabla);
+    
+    
     }
 
     /**
@@ -184,10 +195,32 @@ public class Productos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        
-        
-    }//GEN-LAST:event_btnAgregarActionPerformed
+     CboxRubros.setSelectedIndex(0);
+        String nombre=txtNombre.getText().trim();
+    Object categoria=CboxRubros.getSelectedItem();
+    String preci=txtPrecio.getText().trim();
+    
+    
+    if (nombre.isEmpty()|| categoria==null||preci.isEmpty()){
+        JOptionPane.showMessageDialog(this, "Complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+    }
+     Double precio=Double.parseDouble(txtPrecio.getText());
+     String cat=(String)CboxRubros.getSelectedItem();
+     Producto nuevo=new Producto(nombre,cat,precio);
+     
+     
+        listaProductos.add(nuevo);
 
+        
+        modeloTabla.addRow(new Object[]{nuevo.getNombre(), nuevo.getCategoria(), nuevo.getPrecio()});
+     
+    
+        txtNombre.setText("");
+        txtPrecio.setText("");
+        CboxRubros.setSelectedIndex(0);
+    }//GEN-LAST:event_btnAgregarActionPerformed
+    
     /**
      * @param args the command line arguments
      */

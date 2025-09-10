@@ -4,70 +4,58 @@
  */
 package entity;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Manuel Zuniga
  */
 public class Producto {
+    
+    
 
-    private final int codigo;
-    private String descripcion;
-    private double precio;
-    private int stock;
-    private String rubro;
+    private String nombre;
+    private String categoria;
+    private Double precio;
 
-    public Producto(int codigo, String descripcion, double precio, int stock, String rubro) {
-        if (codigo <= 0) {
-            throw new IllegalArgumentException("El código debe ser > 0");
-        }
-        this.codigo = codigo;
-        this.descripcion = descripcion;
+    public Producto(String nombre, String categoria, Double precio) {
+        this.nombre = nombre;
+        this.categoria = categoria;
         this.precio = precio;
-        this.stock = stock;
-        this.rubro = rubro;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public double getPrecio() {
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public Double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
+    
+    
+   
 
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    public String getRubro() {
-        return rubro;
-    }
-
-    public void setRubro(String rubro) {
-        this.rubro = rubro;
-    }
+    
     
     @Override
     public String toString() {
-        return "Product{"
-                + "codigo=" + codigo
-                + ", descripcion='" + descripcion + '\''
-                + ", precio=" + precio
-                + ", stock=" + stock
-                + ", rubro='" + rubro + '\''
-                + '}';
+        return "Producto "+nombre+", Categoria "+categoria+", precio: $"+precio;
     }
     
     
