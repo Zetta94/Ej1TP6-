@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package entity;
 
 import java.util.ArrayList;
@@ -14,6 +11,7 @@ public class Rubro {
     private static final ArrayList<String> rubros = new ArrayList<>();
 
     static {
+        rubros.add(null);
         rubros.add("COMESTIBLE");
         rubros.add("LIMPIEZA");
         rubros.add("PERFUMERIA");

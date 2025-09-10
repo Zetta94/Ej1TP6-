@@ -24,17 +24,24 @@ public class Productos extends javax.swing.JFrame {
 
 ArrayList <Producto> listaProductos=new ArrayList<>();
     private DefaultTableModel modeloTabla;
+    
+    
     public Productos() {
+        
         initComponents();
-         CboxRubros.removeAllItems();
+         
+        CboxRubros.removeAllItems();
     for (String r : Rubro.getRubros()) {
         CboxRubros.addItem(r);   
     }
     modeloTabla = new DefaultTableModel(new Object[]{"Nombre", "Categoria", "Precio"}, 0);
         jTable1.setModel(modeloTabla);
-    
-    
+        
+    precargarProductos(); 
     }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -194,6 +201,23 @@ ArrayList <Producto> listaProductos=new ArrayList<>();
 
     }//GEN-LAST:event_txtNombreActionPerformed
 
+    private void precargarProductos() {
+    Producto p1 = new Producto("Harina", "COMESTIBLE", 700.2);
+    Producto p2 = new Producto("Lavandina", "LIMPIEZA", 1200.0);
+    Producto p3 = new Producto("Tafirol", "FARMACIA", 200.0);
+    Producto p4 = new Producto("Medias", "ROPA", 3000.0);
+
+    listaProductos.add(p1);
+    listaProductos.add(p2);
+    listaProductos.add(p3);
+    listaProductos.add(p4);
+
+    
+    for (Producto p : listaProductos) {
+        modeloTabla.addRow(new Object[]{p.getNombre(), p.getCategoria(), p.getPrecio()});
+    }
+}
+    
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
      CboxRubros.setSelectedIndex(0);
         String nombre=txtNombre.getText().trim();
