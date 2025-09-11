@@ -11,7 +11,7 @@ public class Rubro {
     private static final ArrayList<String> rubros = new ArrayList<>();
 
     static {
-        rubros.add(null);
+        rubros.add("Seleccione...");
         rubros.add("COMESTIBLE");
         rubros.add("LIMPIEZA");
         rubros.add("PERFUMERIA");
